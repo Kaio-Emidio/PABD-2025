@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Meu nome é {{n}}</h1>
+    <h2>{{sn}}, foi o prof q mandou</h2>
+    <h3>Eu gosto de {{ f[0] }}</h3>
+    <h3>Eu gosto de {{ f[1] }}</h3>
+    <h3>Eu gosto de {{ f[2] }}</h3>
+
+    {% for i in f %}
+
+    <h3>Eu sou um(a) {{ i }}</h3>
+
+    {% endfor %}
+</body>
+</html>
