@@ -10,7 +10,7 @@ cnx = connection.MySQLConnection(
 cursor = cnx.cursor()
 
 sql = "INSERT INTO pessoa (nome, cidade, nascimento) \
-    VALUES (%s, %s, %s)"
+       VALUES (%s, %s, %s)"
 
 nome = 'Kaio'
 cidade = 'Ceará-Mirim'
