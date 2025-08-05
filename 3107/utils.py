@@ -13,3 +13,13 @@ def ConectarBD():
     )
 
     return cnx
+
+def InserirAlterarRemover(sql, dados):
+    cnx = ConectarBD()
+
+    cursor = cnx.cursor()
+
+    cursor.execute(sql, dados)
+    cnx.commit()
+
+    cnx.close()

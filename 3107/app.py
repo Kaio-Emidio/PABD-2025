@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-from utils import ConectarBD
+from utils import ConectarBD, InserirAlterarRemover
 
 app = Flask(__name__)
 
@@ -20,19 +20,12 @@ def envio():
     if dn == '':
         dn = None
 
-    cnx = ConectarBD()
-
-    cursor = cnx.cursor()
-
     sql = "INSERT INTO pessoa (nome, cidade, nascimento) \
         VALUES (%s, %s, %s)"
 
     dados = (n, c, dn)
 
-    cursor.execute(sql, dados)
-    cnx.commit()
-
-    cnx.close()
+    InserirAlterarRemover(sql, dados)
 
     return render_template('sucesso.html')
 
@@ -46,19 +39,16 @@ def formRemover():
 
     if nr == '':
         nr = None
-    
-    cnx = ConectarBD()
-
-    cursor = cnx.cursor()
 
     sql = "DELETE FROM pessoa \
            WHERE nome = %s;"
     
     dados = (nr,)
 
-    cursor.execute(sql, dados)
-    cnx.commit()
-
-    cnx.close()
+    InserirAlterarRemover(sql, dados)
 
     return render_template('sucesso.html')
+
+# @app.route('/alterarcidade')
+# def alterar():
+#     return render_template('alterarcidade.html')
